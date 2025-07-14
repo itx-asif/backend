@@ -30,7 +30,7 @@ cloudinary.config({
 const PORT = process.env.PORT || 8000;
 connectDatabase().then(() => {
   // Start server only after DB connection
-  app.listen(3000, () => console.log('Server running on port 3000'));
+  app.listen(8000, () => console.log('Server running on port 3000'));
 });
 
 
