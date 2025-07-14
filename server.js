@@ -28,12 +28,11 @@ cloudinary.config({
 
 // ✅ Set PORT
 const PORT = process.env.PORT || 8000;
-
-// ✅ Start the server
-const server = app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`);
-  console.log(`✅ Stripe Secret Key Loaded: ${!!process.env.STRIPE_SECRET_KEY}`);
+connectDatabase().then(() => {
+  // Start server only after DB connection
+  app.listen(3000, () => console.log('Server running on port 3000'));
 });
+
 
 // ⚠️ Handle unhandled promise rejections
 process.on("unhandledRejection", (err) => {
